@@ -3,6 +3,10 @@ import MovieList from "./componets/MovieList";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './componets/Navigation';
 import './App.css'
+import {Route , Routes} from "react-router-dom";
+import About from './componets/About';
+import Contact from './componets/Contact';
+import Trailer from './componets/Trailer';
 
 function App() {
   const [text, setText] = useState("");
@@ -117,8 +121,15 @@ function App() {
   return (
     <div className='App'>
       <Navigation setText={setText} setRating={setRating}/>
-      <MovieList movies={movies} setMovies={setMovies} text={text}rating={rating} />
-      
+     
+      <Routes>
+        <Route path="/" element={<MovieList movies={movies} setMovies={setMovies} text={text}rating={rating} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/trailer/:name" element={<Trailer movies = {movies} />} />
+
+
+      </Routes>
     </div>
   )
 }

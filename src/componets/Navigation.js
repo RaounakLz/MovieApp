@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
+import {Link} from "react-router-dom";
 
 function Navigation({setText,setRating}) {
   return (
@@ -15,11 +16,11 @@ function Navigation({setText,setRating}) {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Movies</Nav.Link>
-            <Nav.Link href="#action2">Contact</Nav.Link>
-            <Nav.Link href="#action2">About</Nav.Link>
-
+             <Nav.Link href="#action1"> <Link to ="/">Movies</Link></Nav.Link> 
+            <Nav.Link href="#action2"><Link to ="/contact"> Contact</Link></Nav.Link>
+    <Nav.Link href="#action2">         <Link to ="/about">About</Link></Nav.Link> 
           </Nav>
+
           <span style ={{marginRight:"20px"}}>
           <ReactStars
     count={5} size={24} activeColor="#ffd700" onChange={(newRating)=>setRating(newRating)}
